@@ -13,6 +13,9 @@ class Map
         void GenMap(bool border = true);
         void OutMap();
 
+        int GetHeight() {return m_Height;};
+        int GetWidth() {return m_Width;};
+
     private:
         int m_Width;
         int m_Height;

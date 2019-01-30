@@ -3,7 +3,7 @@
 #include <chrono>
 #include <thread>
 
-#include "Map.h"
+#include "World.h"
 #include "Vector2.h"
 #include "Player.h"
 
@@ -14,13 +14,15 @@ int main(void)
     std::cout << "Window Set Up" << std::endl;
 
 
+    std::cout << "Setting Up World" << std::endl;
+    World testWorld(0);
+    std::cout << "Generating Map" << std::endl;
+    testWorld.GenMap(true);
+    std::cout << "First Drawing of World" << std::endl;
+    testWorld.Draw(window);
+
     Player One(sf::Color::Blue, {80,80});
     std::cout << "Character Set Up" << std::endl;
-
-
-    Map testMap(40,30);
-    testMap.GenMap(true);
-    testMap.OutMap();
 
     std::cout << "Character Drawn For The First Time" << std::endl;
     window.draw(One.getIcon());
@@ -81,7 +83,7 @@ int main(void)
 
         std::cout << "Clearing Window" << std::endl;
         window.clear();
-
+        testWorld.Draw(window);
         window.draw(One.getIcon());
         std::cout << "Character Drawn" << std::endl;
 
