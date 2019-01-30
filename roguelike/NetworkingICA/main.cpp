@@ -3,7 +3,7 @@
 #include <chrono>
 #include <thread>
 
-
+#include "Map.h"
 #include "Vector2.h"
 #include "Player.h"
 
@@ -14,9 +14,13 @@ int main(void)
     std::cout << "Window Set Up" << std::endl;
 
 
-    Player One(sf::Color::Blue, {0,0});
+    Player One(sf::Color::Blue, {80,80});
     std::cout << "Character Set Up" << std::endl;
 
+
+    Map testMap(40,30);
+    testMap.GenMap(true);
+    testMap.OutMap();
 
     std::cout << "Character Drawn For The First Time" << std::endl;
     window.draw(One.getIcon());
@@ -43,43 +47,42 @@ int main(void)
         {
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
-                position = Vector2(-20, -20) + position;
+                One.Move(7);
             }
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
-                position = Vector2(-20, 20) + position;
+                One.Move(1);
             }
             else
             {
-                position = Vector2(-20, 0) + position;
+                One.Move(4);
             }
         }
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
         {
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
-                position = Vector2(20, -20) + position;
+                One.Move(9);
             }
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
-                position = Vector2(20,20) + position;
+                One.Move(3);
             }
             else
             {
-                position = Vector2(20, 0) + position;
+                One.Move(6);
             }
         }
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            position = Vector2(0, -20) + position;
+            One.Move(8);
         else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            position = Vector2(0, 20) + position;
+            One.Move(2);
         std::cout << "Key Check Finished" << std::endl;
-        character.setPosition(position.m_X, position.m_Y);
 
         std::cout << "Clearing Window" << std::endl;
         window.clear();
 
-        window.draw(character);
+        window.draw(One.getIcon());
         std::cout << "Character Drawn" << std::endl;
 
         std::this_thread::sleep_for(std::chrono::milliseconds(100));
