@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="SnakeICA" />
+		<Option title="Networking" />
 		<Option execution_dir="." />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
@@ -17,6 +17,7 @@
 					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="/usr/local/SFML-2.2/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="/usr/local/SFML-2.2/lib/libsfml-audio.so" />
@@ -39,6 +40,7 @@
 					<Add option="-std=c++11" />
 					<Add option="-g" />
 					<Add directory="Windows/SFML/include" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add library="sfml-network" />
@@ -66,11 +68,17 @@
 		<Unit filename="Map.h" />
 		<Unit filename="Player.cpp" />
 		<Unit filename="Player.h" />
+		<Unit filename="Tile.cpp" />
+		<Unit filename="Tile.h" />
+		<Unit filename="TileSet.cpp" />
+		<Unit filename="TileSet.h" />
 		<Unit filename="Vector2.cpp" />
 		<Unit filename="Vector2.h" />
 		<Unit filename="World.cpp" />
 		<Unit filename="World.h" />
+		<Unit filename="include/Tile.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Tile.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />
